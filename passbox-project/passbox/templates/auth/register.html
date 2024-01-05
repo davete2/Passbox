@@ -1,0 +1,60 @@
+{% extends "base.html" %} {% block title %}Sign up{% endblock %}
+
+{% block content %}
+
+<main class="form-signin w-100 m-auto">
+    <form method="post">
+        <img class="mb-4" src="/static/logo.svg" alt="Logo" width="300" height="100">
+        <h1 class="h3 mb-3 fw-normal">Registrati</h1>
+
+
+        <div class="mb-3">
+            <input type="text" class="form-control" name="email" id="email" placeholder="Email" required>
+        </div>
+
+        <div class="mb-3">
+            <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+        </div>
+
+        <div class="mb-3">
+            <input type="text" class="form-control" name="cell" id="cell" placeholder="Numero di telefono" required>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome" required>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="cognome" id="cognome" placeholder="Cognome" required>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm">
+            <div class="mb-3">
+                <label for="birth">Data di nascita</label>
+                <input type="date" class="form-control" name="birth" placeholder="Data di nascita"
+                       id="birth" value="">
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <input type="password" class="form-control pwd" name="pwd" id="pwd" placeholder="Password"
+                   aria-label="Master Password" aria-describedby="button-addon2" required>
+        </div>
+
+
+        <div class="input-group mb-3">
+            <input type="password" class="form-control pwd" name="pwd_repeat" id="pwd_repeat"
+                   placeholder="Ripeti Password" required>
+        </div>
+
+
+        <button class="btn btn-dark w-100 py-2" type="submit">Registrati</button>
+    </form>
+</main>
+{% endblock %}

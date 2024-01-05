@@ -1,0 +1,167 @@
+
+body {
+    min-height: 100svh;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 1rem;
+}
+
+.form-signin .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.pwnedText {
+    background-color: rgba(58, 154, 196, .5)
+}
+
+.pwnedForm {
+    background-color: rgba(46, 130, 167, .5);
+}
+
+.pwnedInfo {
+    background-color: #191919;
+}
+
+.pwnedInfo p {
+    color: white;
+}
+
+.pwnedInfo h3 {
+    color: white;
+}
+
+.pwned {
+    height: 12rem;
+    background-color: #ba4343;
+}
+
+.secure {
+    height: 12rem;
+    background-color: #348f38;
+}
+
+.pwnedContainer h2 {
+    color: white;
+}
+
+.card-custom {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.generated-password {
+    font-family: Courier Prime Bits, monospace;
+}
+
+.password-generator-container {
+    background-color: #0a2d4d;
+    color: white;
+}
+
+.password-generator-container button {
+    --bs-btn-bg: #4894e9;
+}
+
+.card-custom-footer a {
+    --bs-btn-bg: #4894e9;
+}
+
+tr {
+    height: 64px;
+}
+
+.footer {
+    width: 100%;
+    padding: 20px 16px;
+
+}
+
+.menu-home li {
+    list-style-type: none;
+    display: inline-block;
+    margin: 5px 10px;
+
+}
+
+.menu-home li > a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+}
+
+.menu-home li > a::after {
+    content: "";
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0;
+    top: 5px;
+    background: transparent;
+    transition: all 0.3s;
+
+}
+
+.menu-home li > a:hover::after, li > a.active-nav::after {
+    width: 100%;
+    background: white;
+}
+
+.group-menu li > a {
+    color: white;
+}
+
+.banner {
+    height: 6rem;
+    border-radius: 8px;
+    background-color: #ba4343;
+}
+
+#paypal-button-container {
+    height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+#paypal-button-container.is-open {
+    height: 201px;
+    opacity: 1;
+    visibility: visible;
+}
+
+#paypal-button-container .paypal-buttons {
+    display: flex;
+}
+
+#paypal-button-container .paypal-buttons iframe{
+    width: auto;
+    /*position: relative;*/
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.change-my-color {
+  fill: green;
+}
+
+.team-pic {
+    max-height: 450px;
+}

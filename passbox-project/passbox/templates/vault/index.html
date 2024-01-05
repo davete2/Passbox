@@ -1,0 +1,249 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style_home.css') }}">
+<body class="d-flex flex-column justify-content-between h-100">
+<main class="flex-shrink-0">
+
+    <!-- Header-->
+    <header class="bg-dark py-5">
+        <div class="container px-5">
+            <div class="row gx-5 align-items-center justify-content-center">
+                <div class="col-lg-8 col-xl-7 col-xxl-6">
+                    <div class="my-5 text-center text-xl-start">
+                        <h1 class="display-5 fw-bolder text-white mb-2">Un unico luogo sicuro per tutte le tue
+                            password.</h1>
+                        <p class="lead fw-normal text-white-50 mb-4"> Gestisci, proteggi, vivi senza preoccupazioni.</p>
+                        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
+                            {% if not g.user %}
+                            <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{{ url_for('auth.login') }}">Inizia
+                                Ora</a>
+                            <a class="btn btn-outline-light btn-lg px-4" href="{{ url_for('vault.pricing') }}">Scopri di
+                                più</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-5 col-xxl-6 d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5"
+                                                                                   src="{{url_for('static', filename='img/hero-img.png')}}"
+                                                                                   alt="..." width="600" height="400"/>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+            <hr/>
+    </div>
+    <!-- Features section-->
+    <section class="py-5" id="features">
+        <div class="container px-5 my-5">
+            <div class="row gx-5">
+                <div class="col-lg-4 mb-5 mb-lg-0"><h2 class="fw-bolder mb-0">Esplora la libertà digitale con i nostri
+                    servizi di gestione credenziali: sicuri, intuitivi, indispensabili.</h2></div>
+                <div class="col-lg-8">
+                    <div class="row gx-5 row-cols-1 row-cols-md-2">
+                        <div class="col mb-5 h-100">
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <div class="box-shadow bg-white rounded-circle mx-auto text-center"
+                                         style="width: 90px; height: 90px; margin-top: -45px;"><i
+                                            class="fa fa-user fa-3x head-icon"></i></div>
+                                    <h5 class="card-title">Storage di credenziali</h5>
+                                    <p class="card-text">La tua sicurezza, il nostro impegno. Con il nostro servizio di
+                                        storage credenziali, proteggi e accedi alle tue informazioni sensibili in un
+                                        solo luogo affidabile.</p>
+                                    {% if g.user %}
+                                    <a href="{{ url_for('vault.password_vault') }}" class="btn btn-primary">Scopri di
+                                        più</a>
+                                    {% else %}
+                                    <a href="{{ url_for('auth.login') }}" class="btn btn-primary">Scopri di più</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5 h-100">
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <div class="box-shadow bg-white rounded-circle mx-auto text-center"
+                                         style="width: 90px; height: 90px; margin-top: -45px;"><i
+                                            class="fa fa-lock fa-3x head-icon"></i></div>
+                                    <h5 class="card-title">Generatore di password</h5>
+                                    <p class="card-text">Potenza e sicurezza in ogni clic. Il nostro servizio di
+                                        generatore di password crea chiavi uniche per proteggere il tuo mondo
+                                        digitale.</p>
+                                    {% if g.user %}
+                                    <a href="{{ url_for('vault.password_generator') }}" class="btn btn-primary">Scopri
+                                        di più</a>
+                                    {% else %}
+                                    <a href="{{ url_for('vault.pricing') }}" class="btn btn-primary">Scopri di più</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5 h-100">
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <div class="box-shadow bg-white rounded-circle mx-auto text-center"
+                                         style="width: 90px; height: 90px; margin-top: -45px;"><i
+                                            class="fa fa-check fa-3x head-icon"></i></div>
+                                    <h5 class="card-title">Analisi di robustezza delle password</h5>
+                                    <p class="card-text">Garantisci la robustezza della tua sicurezza digitale con il
+                                        nostro servizio di verifica di integrità delle password: la chiave per una
+                                        difesa senza compromessi.</p>
+                                    {% if g.user %}
+                                    <a href="{{ url_for('vault.password_checker') }}" class="btn btn-primary">Scopri di
+                                        più</a>
+                                    {% else %}
+                                    <a href="{{ url_for('vault.pricing') }}" class="btn btn-primary">Scopri di più</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col mb-5 h-100">
+                            <div class="card">
+
+                                <div class="card-body">
+                                    <div class="box-shadow bg-white rounded-circle mx-auto text-center"
+                                         style="width: 90px; height: 90px; margin-top: -45px;"><i
+                                            class="fa fa-paper-plane fa-3x head-icon"></i></div>
+                                    <h5 class="card-title">Condivisione password</h5>
+                                    <p class="card-text">Semplifica la condivisione di accessi con il nostro servizio di
+                                        condivisione password. Connessione senza sforzo, sicurezza senza
+                                        compromessi.</p>
+                                    {% if g.user %}
+                                    <a href="{{ url_for('vault.password_vault') }}" class="btn btn-primary">Scopri di
+                                        più</a>
+                                    {% else %}
+                                    <a href="{{ url_for('vault.pricing') }}" class="btn btn-primary">Scopri di più</a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <hr/>
+    <!-- Team 2 - Bootstrap Brain Component -->
+    <section class="py-3 py-md-5 py-xl-8">
+        <div class="container">
+            <div class="row justify-content-md-center">
+                <div class="col-12 col-md-10 col-lg-8 col-xl-7 col-xxl-6">
+                    <h2 class="fs-6 text-secondary mb-2 text-uppercase text-center">Il nostro team</h2>
+                    <p class="display-5 mb-4 mb-md-5 text-center">Passione e competenza al tuo servizio</p>
+                    <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+                </div>
+            </div>
+        </div>
+
+        <div class="container overflow-hidden">
+            <div class="row gy-4 gy-lg-0">
+                <div class="col-12 col-lg-4">
+                    <div class="card border-0">
+                        <figure class="card-img-top m-0 overflow-hidden bsb-overlay-hover">
+                            <a href="#!">
+                                <img class="img-fluid bsb-scale bsb-hover-scale-up w-100 team-pic" loading="lazy"
+                                     src="{{url_for('static', filename='team/davide.png')}}" alt="" width="267" height="350">
+                            </a>
+                            <figcaption>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                     class="bi bi-eye text-white bsb-hover-fadeInLeft" viewBox="0 0 16 16">
+                                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                </svg>
+                                <h4 class="h6 text-white bsb-hover-fadeInRight mt-2">Read More</h4>
+                            </figcaption>
+                        </figure>
+                        <div class="card-body border bg-white p-4">
+                            <h2 class="card-title h4 fw-bold mb-3" style="color: black;">Davide D'Auria</h2>
+
+                        </div>
+                        <div class="card-footer border border-top-0 bg-white p-4">
+                            <ul class="nav mb-0 bsb-nav-sep">
+                                <li class="nav-item text-secondary">
+                                    <a class="nav-link link-secondary p-0 pe-3 d-inline-flex align-items-center"
+                                       href="#!">
+                                        <i class="bi bi-code-slash"></i>
+                                        <span class="ms-2 fs-6">Developer</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="card border-0">
+                        <figure class="card-img-top m-0 overflow-hidden bsb-overlay-hover">
+                            <a href="#!">
+                                <img class="img-fluid bsb-scale bsb-hover-scale-up w-100 team-pic" loading="lazy"
+                                     src="{{url_for('static', filename='team/bruno.png')}}" alt="" width="267" height="300">
+                            </a>
+                            <figcaption>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                     class="bi bi-eye text-white bsb-hover-fadeInLeft" viewBox="0 0 16 16">
+                                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                </svg>
+                                <h4 class="h6 text-white bsb-hover-fadeInRight mt-2">Read More</h4>
+                            </figcaption>
+                        </figure>
+                        <div class="card-body border bg-white p-4">
+                            <h2 class="card-title h4 fw-bold mb-3" style="color: black;">Bruno Calvanese</h2>
+
+                        </div>
+                        <div class="card-footer border border-top-0 bg-white p-4">
+                            <ul class="nav mb-0 bsb-nav-sep">
+                                <li class="nav-item text-secondary">
+                                    <a class="nav-link link-secondary p-0 pe-3 d-inline-flex align-items-center"
+                                       href="#!">
+                                        <i class="bi bi-code-slash"></i>
+                                        <span class="ms-2 fs-6">Developer</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4">
+                    <div class="card border-0">
+                        <figure class="card-img-top m-0 overflow-hidden bsb-overlay-hover">
+                            <a href="#!">
+                                <img class="img-fluid bsb-scale bsb-hover-scale-up w-100 team-pic" loading="lazy"
+                                     src="{{url_for('static', filename='team/propic_davideI.jpeg')}}" alt="" width="267" height="350">
+                            </a>
+                            <figcaption>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                                     class="bi bi-eye text-white bsb-hover-fadeInLeft" viewBox="0 0 16 16">
+                                    <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                                    <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                                </svg>
+                                <h4 class="h6 text-white bsb-hover-fadeInRight mt-2">Read More</h4>
+                            </figcaption>
+                        </figure>
+                        <div class="card-body border bg-white p-4">
+                            <h2 class="card-title h4 fw-bold mb-3 " style="color: black;">Davide Iachetta</h2>
+                        </div>
+                        <div class="card-footer border border-top-0 bg-white p-4">
+                            <ul class="nav mb-0 bsb-nav-sep">
+                                <li class="nav-item text-secondary">
+                                    <a class="nav-link link-secondary p-0 pe-3 d-inline-flex align-items-center"
+                                       href="#!">
+                                        <i class="bi bi-code-slash"></i>
+                                        <span class="ms-2 fs-6">Developer</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+</body>
+
+{% endblock %}

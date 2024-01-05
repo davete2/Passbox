@@ -1,0 +1,53 @@
+{% extends "base.html"%} {%block title%}Profilo{%endblock%}
+{% block content %}
+<div class="container mt-4">
+    <h3 class="border-bottom py-3">Il mio account</h3>
+    <div class="row mt-4">
+        <div class="col-6 ">
+            <form action="">
+                <form action="" method="post" class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="nome" placeholder="Nome"
+                                       value="{{g.user['NOME']}}">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="cognome" placeholder="Cognome"
+                                       value="{{g.user['COGNOME']}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="cell" placeholder="Username"
+                               value="{{g.user['EMAIL']}}">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="cell" placeholder="Username"
+                               value="{{g.user['USERNAME']}}">
+                    </div>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" name="cell" placeholder="Numero di telefono"
+                               value="{{g.user['N_TEL']}}">
+                    </div>
+
+                    <div class="col-sm">
+                        <div class="mb-3">
+                            <label for="birth">Data di nascita</label>
+                            <input type="date" class="form-control" name="birth" placeholder="Data di nascita"
+                                   id="birth" value="2003-01-30">
+                        </div>
+                    </div>
+
+                </form>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

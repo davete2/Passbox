@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %}
+
+{% block content %}
+
+<main class="form-signin w-100 m-auto">
+    <form method="post">
+        <img class="mb-4" src="/static/logo.svg" alt="Logo" width="300" height="100">
+        <h1 class="h3 mb-3 fw-normal">Login</h1>
+
+        <div class="form-floating">
+            <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
+            <label for="email">Email address</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" name="pwd" id="pwd" placeholder="Password">
+            <label for="pwd">Password</label>
+        </div>
+
+
+        <button class="btn btn-dark w-100 py-2" type="submit">Sign in</button>
+        <p class="mt-3 mb-3 text-body-secondary">&copy; 2023</p>
+    </form>
+</main>
+{% endblock %}

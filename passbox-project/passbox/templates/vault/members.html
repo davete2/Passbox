@@ -1,0 +1,83 @@
+{% extends "base.html"%} {%block title%}Vault{%endblock%}
+{% block groupMenu %}
+<div class="container gruop-menu">
+
+    <nav class="navbar navbar-expand-sm bg-dark d-inline-flex mt-2 mt-md-0 ms-md-auto" data-bs-theme="dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarTogglerDemo01"
+                    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarTogglerDemo01">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" id="cassaforte"
+                           href="{{ url_for('vault.password_vault') }}">Cassaforte</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="group-list" href="{{ url_for('vault.create_group') }}">Gruppo</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h3>Membri {{group_name}}</h3>
+
+    <table class="table table-striped table-hover">
+        <thead>
+
+        <tr>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Username</th>
+            <th scope="col">Ruolo</th>
+            <th scope="col"></th>
+
+
+        </tr>
+        </thead>
+        <tbody class="table-group-divider">
+        <tr>
+            <td>{{admin['NOME']}}</td>
+            <td>{{admin['EMAIL']}}</td>
+            <td>{{admin['USERNAME']}}</td>
+            <td>Admin</td>
+            <td></td>
+        </tr>
+        {% for membri in membri_list %}
+
+        <tr>
+            <td>{{membri['NOME']}}</td>
+            <td>{{membri['EMAIL']}}</td>
+            <td>{{membri['USERNAME']}}</td>
+            <td>Utente</td>
+
+            <td>
+                {%if is_admin: %}
+                <form action="{{url_for('vault.delete_group_member', id=membri['ID_UG']) }}"
+                      method="post"
+                      class="d-flex">
+                    <button class="btn deleteMembers" type="submit"><i class="bi bi-trash p-2"></i></button>
+                </form>
+                {%endif%}
+            </td>
+        </tr>
+        {%endfor%}
+        </tbody>
+    </table>
+    <a href="{{url_for('vault.group_vault', group_name=name, group_id = group_id)}}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+             class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+                  d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z"/>
+        </svg>
+    </a>
+</div>
+
+{%endblock%}
